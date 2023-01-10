@@ -6,7 +6,9 @@ namespace Repositories.UnitOfWork;
 
 public class AddressRepository : GenericRepository<Address>, IAddressRepository
 {
-    public AddressRepository(ApplicationDbContext context) : base(context)
+    private ILogger _logger;
+    
+    public AddressRepository(ApplicationDbContext context, ILogger logger) : base(context, logger)
     {
     }
 }

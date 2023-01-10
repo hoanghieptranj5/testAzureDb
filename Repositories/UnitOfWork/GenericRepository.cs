@@ -9,16 +9,19 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
 {
     protected ApplicationDbContext Context;
     private DbSet<T> _dbSet;
+    private ILogger _logger;
 
-    public GenericRepository(ApplicationDbContext context)
+    public GenericRepository(ApplicationDbContext context, ILogger logger)
     {
         Context = context;
+        _logger = logger;
         _dbSet = Context.Set<T>();
+        
     }
 
     public async Task<IEnumerable<T>> All()
     {
-        return await _dbSet.Take(10).ToListAsync();
+        return await _dbSet.ToListAsync();
     }
 
     public async Task<T> GetById(Guid id)

@@ -1,16 +1,21 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Diagnostics;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace Repositories.Model
 {
     public partial class ApplicationDbContext : DbContext
     {
+        private readonly ILogger _logger;
+        
         public ApplicationDbContext()
         {
         }
 
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, ILoggerFactory loggerFactory)
             : base(options)
         {
+            _logger = loggerFactory.CreateLogger("DbLogger");
         }
 
         public virtual DbSet<Address> Addresses { get; set; }
@@ -31,6 +36,8 @@ namespace Repositories.Model
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            optionsBuilder.LogTo(Console.WriteLine, LogLevel.Information);
+
             if (!optionsBuilder.IsConfigured)
             {
                

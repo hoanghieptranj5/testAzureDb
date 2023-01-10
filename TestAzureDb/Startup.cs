@@ -37,6 +37,8 @@ public class Startup : FunctionsStartup
             };
         });
 
+        builder.Services.AddLogging();
+
         string connectionString = Environment.GetEnvironmentVariable("SqlConnectionString");
         builder.Services.AddDbContext<ApplicationDbContext>(options =>
             SqlServerDbContextOptionsExtensions.UseSqlServer(options, connectionString));
