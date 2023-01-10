@@ -1,19 +1,24 @@
 using Microsoft.Extensions.Logging;
 using Repositories.Model;
+using Repositories.UnitOfWork.Abstractions;
 
-namespace Repositories.UnitOfWork;
+namespace Repositories.UnitOfWork.Implementations;
 
 public class UnitOfWork : IUnitOfWork, IDisposable
 {
     private readonly ApplicationDbContext _dbContext;
-    private readonly ILogger _logger;
     
     public IAddressRepository Addresses { get; set; }
+    public IProductRepository Products { get; set; }
 
     public UnitOfWork(ApplicationDbContext dbContext, ILoggerFactory loggerFactory)
     {
         _dbContext = dbContext;
-        Addresses = new AddressRepository(_dbContext, loggerFactory.CreateLogger("Hello"));
+        
+        var logger = loggerFactory.CreateLogger<UnitOfWork>();
+        
+        Addresses = new AddressRepository(_dbContext, logger);
+        Products = new ProductRepository(_dbContext, logger);
     }
 
     public async Task CompleteAsync()

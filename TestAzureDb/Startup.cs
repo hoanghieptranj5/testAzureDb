@@ -7,6 +7,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Repositories.Model;
 using Repositories.UnitOfWork;
+using Repositories.UnitOfWork.Abstractions;
+using Repositories.UnitOfWork.Implementations;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using TestAzureDb.Logic;
 

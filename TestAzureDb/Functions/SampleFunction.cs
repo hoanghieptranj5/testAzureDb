@@ -6,19 +6,12 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using Repositories.UnitOfWork;
+using Repositories.UnitOfWork.Abstractions;
 
 namespace TestAzureDb.Functions;
 
 public class SampleFunction
 {
-    private readonly IUnitOfWork _unitOfWork;
-
-    public SampleFunction(IUnitOfWork unitOfWork)
-    {
-        _unitOfWork = unitOfWork;
-    }
-
     [FunctionName("SampleOne")]
     public static async Task<IActionResult> Run(
         [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req, 
@@ -36,14 +29,5 @@ public class SampleFunction
             : $"Hello, {name}. This HTTP triggered function executed successfully.";
 
         return new OkObjectResult(responseMessage);
-    }
-    
-    [FunctionName("SampleTwo")]
-    public async Task<IActionResult> Test(
-        [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req, 
-        ILogger log)
-    {
-        var result = await _unitOfWork.Addresses.All();
-        return new OkObjectResult(result);
     }
 }

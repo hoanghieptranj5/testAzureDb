@@ -1,8 +1,8 @@
-using System.Linq.Expressions;
 using Microsoft.Extensions.Logging;
 using Repositories.Model;
+using Repositories.UnitOfWork.Abstractions;
 
-namespace Repositories.UnitOfWork;
+namespace Repositories.UnitOfWork.Implementations;
 
 public class AddressRepository : GenericRepository<Address>, IAddressRepository
 {

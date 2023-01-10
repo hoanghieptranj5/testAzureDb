@@ -1,6 +1,6 @@
 using Repositories.Model;
 
-namespace Repositories.UnitOfWork;
+namespace Repositories.UnitOfWork.Abstractions;
 
 public interface IAddressRepository : IGenericRepository<Address>
 {

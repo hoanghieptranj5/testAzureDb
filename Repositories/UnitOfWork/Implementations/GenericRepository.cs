@@ -2,8 +2,9 @@ using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Repositories.Model;
+using Repositories.UnitOfWork.Abstractions;
 
-namespace Repositories.UnitOfWork;
+namespace Repositories.UnitOfWork.Implementations;
 
 public class GenericRepository<T> : IGenericRepository<T> where T : class
 {
