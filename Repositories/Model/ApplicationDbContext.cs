@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace Repositories.Model
 {
@@ -33,6 +34,8 @@ namespace Repositories.Model
         {
             if (!optionsBuilder.IsConfigured)
             {
+                string connectionString = "Server=tcp:mysqlserverhip.database.windows.net,1433;Initial Catalog=mySampleDatabse;Persist Security Info=False;User ID=azureuser;Password=Protoss5195;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+                optionsBuilder.UseSqlServer(connectionString);
             }
         }
 
