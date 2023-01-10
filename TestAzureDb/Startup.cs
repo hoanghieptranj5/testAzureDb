@@ -4,9 +4,9 @@ using AzureFunctions.Extensions.Swashbuckle;
 using AzureFunctions.Extensions.Swashbuckle.Settings;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Repositories.Model;
+using Repositories.UnitOfWork;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using TestAzureDb.Logic;
 
@@ -36,12 +36,11 @@ public class Startup : FunctionsStartup
                     apiDesc.TryGetMethodInfo(out var mInfo) ? mInfo.Name : default(Guid).ToString());
             };
         });
-        
-        
+
         string connectionString = Environment.GetEnvironmentVariable("SqlConnectionString");
         builder.Services.AddDbContext<ApplicationDbContext>(options =>
             SqlServerDbContextOptionsExtensions.UseSqlServer(options, connectionString));
 
-        builder.Services.AddScoped<MyTimerFunction>();
+        builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
     }
 }

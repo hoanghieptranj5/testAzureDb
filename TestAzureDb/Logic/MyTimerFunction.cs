@@ -17,7 +17,7 @@ public class MyTimerFunction
 
     public async Task<IEnumerable<Address>> GetAddresses()
     {
-        var addresses = await _dbContext.Addresses.Take(10).ToListAsync();
+        var addresses = await _dbContext.Addresses.Take(1).ToListAsync();
         return addresses;
     }
 }
