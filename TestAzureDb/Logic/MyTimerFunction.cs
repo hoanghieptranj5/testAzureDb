@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using TestAzureDb.Model;
+using Repositories.Model;
 
 namespace TestAzureDb.Logic;
 

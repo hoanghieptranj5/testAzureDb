@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using Microsoft.EntityFrameworkCore;
 
-namespace TestAzureDb.Model
+namespace Repositories.Model
 {
     public partial class ApplicationDbContext : DbContext
     {

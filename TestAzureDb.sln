@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestAzureDb", "TestAzureDb\TestAzureDb.csproj", "{40D4601F-BF15-4101-ABF8-9EF6834730D0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositories", "Repositories\Repositories.csproj", "{F31CF50B-62DB-4022-A6BC-DBF4A7FDAB2C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{40D4601F-BF15-4101-ABF8-9EF6834730D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40D4601F-BF15-4101-ABF8-9EF6834730D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40D4601F-BF15-4101-ABF8-9EF6834730D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F31CF50B-62DB-4022-A6BC-DBF4A7FDAB2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F31CF50B-62DB-4022-A6BC-DBF4A7FDAB2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F31CF50B-62DB-4022-A6BC-DBF4A7FDAB2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F31CF50B-62DB-4022-A6BC-DBF4A7FDAB2C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

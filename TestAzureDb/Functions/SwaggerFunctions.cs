@@ -5,9 +5,7 @@ using AzureFunctions.Extensions.Swashbuckle.Attribute;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
-using Swashbuckle.AspNetCore.Filters;
 using TestAzureDb;
-using TestAzureDb.Model;
 
 [assembly: FunctionsStartup(typeof(Startup))]
 namespace TestAzureDb.Functions;

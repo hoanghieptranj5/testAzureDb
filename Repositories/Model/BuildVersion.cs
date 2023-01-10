@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace TestAzureDb.Model
+﻿namespace Repositories.Model
 {
     public partial class BuildVersion
     {
