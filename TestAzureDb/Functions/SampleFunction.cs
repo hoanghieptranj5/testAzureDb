@@ -14,7 +14,7 @@ public class SampleFunction
 {
     [FunctionName("SampleOne")]
     public static async Task<IActionResult> Run(
-        [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req, 
+        [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req, 
         ILogger log) 
     {
         log.LogInformation("C# Http trigger function processed a request.");

@@ -19,7 +19,7 @@ public class ProductFunctions
 
     [FunctionName("FindProductById")]
     public async Task<IActionResult> FindProductById(
-        [HttpTrigger(AuthorizationLevel.Function, "get", Route = "product/{productId}")] HttpRequest req,
+        [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "product/{productId}")] HttpRequest req,
         int productId,
         ILogger log)
     {

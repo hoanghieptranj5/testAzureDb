@@ -1,16 +1,18 @@
 ﻿using System;
+using System.Net.Http;
 using System.Reflection;
+using System.Threading.Tasks;
 using AzureFunctions.Extensions.Swashbuckle;
 using AzureFunctions.Extensions.Swashbuckle.Settings;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Repositories.Model;
-using Repositories.UnitOfWork;
 using Repositories.UnitOfWork.Abstractions;
 using Repositories.UnitOfWork.Implementations;
 using Swashbuckle.AspNetCore.SwaggerGen;
-using TestAzureDb.Logic;
+using Microsoft.Extensions.Configuration;
 
 namespace TestAzureDb;
 
@@ -41,7 +43,7 @@ public class Startup : FunctionsStartup
 
         builder.Services.AddLogging();
 
-        string connectionString = Environment.GetEnvironmentVariable("SqlConnectionString");
+        string connectionString = Environment.GetEnvironmentVariable("SqlConnectionString", EnvironmentVariableTarget.Process);
         builder.Services.AddDbContext<ApplicationDbContext>(options =>
             SqlServerDbContextOptionsExtensions.UseSqlServer(options, connectionString));
 
