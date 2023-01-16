@@ -33,7 +33,8 @@ namespace Repositories.Model
         public virtual DbSet<VGetAllCategory> VGetAllCategories { get; set; }
         public virtual DbSet<VProductAndDescription> VProductAndDescriptions { get; set; }
         public virtual DbSet<VProductModelCatalogDescription> VProductModelCatalogDescriptions { get; set; }
-        public virtual DbSet<City> Cities { get; set; }
+        
+        public virtual DbSet<ElectricPrice> ElectricPrices { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

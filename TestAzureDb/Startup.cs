@@ -13,6 +13,7 @@ using Repositories.UnitOfWork.Abstractions;
 using Repositories.UnitOfWork.Implementations;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Microsoft.Extensions.Configuration;
+using TestAzureDb.Profiles;
 
 namespace TestAzureDb;
 
@@ -40,6 +41,8 @@ public class Startup : FunctionsStartup
                     apiDesc.TryGetMethodInfo(out var mInfo) ? mInfo.Name : default(Guid).ToString());
             };
         });
+
+        builder.Services.AddAutoMapper(typeof(ElectricPriceProfile));
 
         builder.Services.AddLogging();
 
