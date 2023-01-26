@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Net.Http;
 using System.Reflection;
-using System.Threading.Tasks;
 using AzureFunctions.Extensions.Swashbuckle;
 using AzureFunctions.Extensions.Swashbuckle.Settings;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,7 +9,6 @@ using Repositories.Model;
 using Repositories.UnitOfWork.Abstractions;
 using Repositories.UnitOfWork.Implementations;
 using Swashbuckle.AspNetCore.SwaggerGen;
-using Microsoft.Extensions.Configuration;
 using TestAzureDb.Profiles;
 
 namespace TestAzureDb;
