@@ -26,6 +26,7 @@ public class ElectricFunctions
         _mapper = mapper;
     }
 
+    [ApiExplorerSettings(GroupName = "ElectricPricesApi")]
     [FunctionName("GetElectricPrices")]
     public async Task<IActionResult> GetElectricPrices(
         [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "electricPrices")] HttpRequest req,
@@ -35,6 +36,7 @@ public class ElectricFunctions
         return new OkObjectResult(result);
     }
 
+    [ApiExplorerSettings(GroupName = "ElectricPricesApi")]
     [FunctionName("AddElectricPrices")]
     public async Task<IActionResult> AddElectricPrice(
         [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "electricPrices/{priceId}")]
