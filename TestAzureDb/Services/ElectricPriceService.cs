@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Common.Converters;
 using Microsoft.Extensions.Logging;
 using Repositories.Model;
 using Repositories.UnitOfWork.Abstractions;
@@ -21,20 +22,13 @@ public class ElectricPriceService : IElectricPriceService
 
     public async Task<ElectricPrice> GetSingleById(int id)
     {
-        var item = await _unitOfWork.ElectricPriceRepository.GetById(ToGuid(id));
+        var item = await _unitOfWork.ElectricPrices.GetById(IntegerConvert.ToGuid(id));
         return item;
     }
 
     public async Task<IEnumerable<ElectricPrice>> GetList()
     {
-        var items = await _unitOfWork.ElectricPriceRepository.All();
+        var items = await _unitOfWork.ElectricPrices.All();
         return items;
-    }
-    
-    private static Guid ToGuid(int value)
-    {
-        var bytes = new byte[16];
-        BitConverter.GetBytes(value).CopyTo(bytes, 0);
-        return new Guid(bytes);
     }
 }

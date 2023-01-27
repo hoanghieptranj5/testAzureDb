@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestAzureDb", "TestAzureDb\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositories", "Repositories\Repositories.csproj", "{F31CF50B-62DB-4022-A6BC-DBF4A7FDAB2C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{993D64BC-0CB5-47BF-AF23-F8DCCCD51882}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{F31CF50B-62DB-4022-A6BC-DBF4A7FDAB2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F31CF50B-62DB-4022-A6BC-DBF4A7FDAB2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F31CF50B-62DB-4022-A6BC-DBF4A7FDAB2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{993D64BC-0CB5-47BF-AF23-F8DCCCD51882}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{993D64BC-0CB5-47BF-AF23-F8DCCCD51882}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{993D64BC-0CB5-47BF-AF23-F8DCCCD51882}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{993D64BC-0CB5-47BF-AF23-F8DCCCD51882}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

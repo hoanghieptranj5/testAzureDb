@@ -32,7 +32,7 @@ public class ElectricFunctions
         [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "electricPrices")] HttpRequest req,
         ILogger log)
     {
-        var result = await _unitOfWork.ElectricPriceRepository.All();
+        var result = await _unitOfWork.ElectricPrices.All();
         return new OkObjectResult(result);
     }
 
@@ -46,7 +46,7 @@ public class ElectricFunctions
     {
         var requestObject = await new StreamReader(req.Body).ReadToEndAsync();
         var requestModel = JsonConvert.DeserializeObject<CreateElectricPriceRequestModel>(requestObject);
-        var result = await _unitOfWork.ElectricPriceRepository.Add(_mapper.Map<ElectricPrice>(requestModel));
+        var result = await _unitOfWork.ElectricPrices.Add(_mapper.Map<ElectricPrice>(requestModel));
         await _unitOfWork.CompleteAsync();
 
         return new OkObjectResult(result);
