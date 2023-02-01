@@ -1,11 +1,8 @@
-using System.ComponentModel.DataAnnotations;
-using Newtonsoft.Json;
-
 namespace Repositories.Model;
 
 public partial class ElectricPrice
 {
-    [Key]
+    public Guid Id { get; set; }
     public int Level { get; set; }
     public int From { get; set; }
     public int To { get; set; }

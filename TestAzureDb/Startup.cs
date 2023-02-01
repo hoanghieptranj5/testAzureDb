@@ -10,6 +10,8 @@ using Repositories.UnitOfWork.Abstractions;
 using Repositories.UnitOfWork.Implementations;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using TestAzureDb.Profiles;
+using TestAzureDb.Services;
+using TestAzureDb.Services.Abstractions;
 
 namespace TestAzureDb;
 
@@ -47,5 +49,7 @@ public class Startup : FunctionsStartup
             SqlServerDbContextOptionsExtensions.UseSqlServer(options, connectionString));
 
         builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+        builder.Services.AddScoped<IElectricPriceService, ElectricPriceService>();
     }
 }

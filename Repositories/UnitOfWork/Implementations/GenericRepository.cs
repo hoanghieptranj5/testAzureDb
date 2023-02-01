@@ -46,20 +46,13 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
 
     public async Task<bool> Delete(Guid id)
     {
-        try
+        var entity = await _dbSet.FindAsync(id);
+        if (entity == null)
         {
-            var entity = await _dbSet.FindAsync(id);
-            if (entity == null)
-            {
-                return false;
-            }
-            _dbSet.Remove(entity);
+            throw new Exception($"{id.ToString()} not found!");
         }
-        catch (Exception e)
-        {
-            return false;
-        }
-        
+        _dbSet.Remove(entity);
+
         return true;
     }
 

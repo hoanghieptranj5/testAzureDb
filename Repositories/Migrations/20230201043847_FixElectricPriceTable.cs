@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Repositories.Migrations
 {
-    public partial class AddEletricPrice : Migration
+    public partial class FixElectricPriceTable : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,8 +13,8 @@ namespace Repositories.Migrations
                 name: "ElectricPrices",
                 columns: table => new
                 {
-                    Level = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Level = table.Column<int>(type: "int", nullable: false),
                     From = table.Column<int>(type: "int", nullable: false),
                     To = table.Column<int>(type: "int", nullable: false),
                     StandardPrice = table.Column<long>(type: "bigint", nullable: false),
@@ -22,14 +22,14 @@ namespace Repositories.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ElectricPrices", x => x.Level);
+                    table.PrimaryKey("PK_ElectricPrices", x => x.Id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "ElectricPrices ");
+                name: "ElectricPrices");
         }
     }
 }

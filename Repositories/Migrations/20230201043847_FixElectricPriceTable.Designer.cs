@@ -12,8 +12,8 @@ using Repositories.Model;
 namespace Repositories.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230116045111_AddEletricPrice")]
-    partial class AddEletricPrice
+    [Migration("20230201043847_FixElectricPriceTable")]
+    partial class FixElectricPriceTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -238,16 +238,17 @@ namespace Repositories.Migrations
 
             modelBuilder.Entity("Repositories.Model.ElectricPrice", b =>
                 {
-                    b.Property<int>("Level")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Level"), 1L, 1);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("From")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Level")
                         .HasColumnType("int");
 
                     b.Property<long>("StandardPrice")
@@ -256,7 +257,7 @@ namespace Repositories.Migrations
                     b.Property<int>("To")
                         .HasColumnType("int");
 
-                    b.HasKey("Level");
+                    b.HasKey("Id");
 
                     b.ToTable("ElectricPrices");
                 });
